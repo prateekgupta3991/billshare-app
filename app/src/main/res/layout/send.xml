@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv1send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This app as a first app is" />
+    
+ <RadioGroup android:layout_width="fill_parent" 
+			  android:layout_height="wrap_content"
+			  android:id="@+id/rgsend">
+    <RadioButton
+        android:id="@+id/rb1send"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Awesome" />
+
+    <RadioButton
+        android:id="@+id/rb2send"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="good" />
+
+    <RadioButton
+        android:id="@+id/rb3send"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Bad" />
+    
+</RadioGroup>
+
+ <Button
+     android:id="@+id/bsend"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:text="Return" />
+
+    <TextView
+        android:id="@+id/tv2send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+</LinearLayout>

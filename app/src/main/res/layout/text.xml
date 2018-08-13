@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/eT1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type"
+        android:password="true"
+         >
+        <requestFocus android:layout_width="wrap_content" />
+    </EditText>
+    
+    <!-- Layout within a layout is like working with panels in java GUI.
+    A panel for each group of the characteristics has a separate 
+    layout. For maintaining a balance in space acquires by each characteristic
+    we use layout_wightsum function.-->
+    
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="horizontal" 
+    android:weightSum="100">
+
+        <ToggleButton
+            android:id="@+id/tB1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="ToggleButton"
+            android:layout_weight="80"
+            android:padding="2dp"
+            android:checked="true"
+            />
+
+        <Button
+            android:layout_weight="20"
+            android:id="@+id/bt1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="TRY"
+            />
+
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/tV1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TEXT" />
+
+</LinearLayout>

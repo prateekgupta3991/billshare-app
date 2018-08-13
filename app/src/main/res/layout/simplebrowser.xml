@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:weightSum="100">
+    <EditText
+        android:id="@+id/eturl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the URL"
+        android:layout_weight="20" >
+    </EditText>
+
+    <Button
+        android:id="@+id/bgo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Go" 
+        android:layout_weight="80"
+        android:layout_marginLeft="@id/eturl"
+        />
+    
+    </LinearLayout>
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:weightSum="100">
+    <Button
+        android:id="@+id/bgback"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Go back"
+        android:layout_weight="50" />
+
+    <Button
+        android:id="@+id/bgforw"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Go Forward" 
+        android:layout_weight="50"/>
+    </LinearLayout>
+    
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:weightSum="100">
+    <Button
+        android:id="@+id/brefresh"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Refresh" 
+        android:layout_weight="50"/>
+
+    <Button
+        android:id="@+id/bclearhis"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear History" 
+        android:layout_weight="50"
+        />
+	</LinearLayout>
+
+	<WebView
+	    android:id="@+id/webView"
+	    android:layout_width="fill_parent"
+	    android:layout_height="match_parent" />
+
+</LinearLayout>
+
