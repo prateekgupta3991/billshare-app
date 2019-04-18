@@ -11,10 +11,10 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 
 public class SendData extends Activity implements View.OnClickListener, android.widget.RadioGroup.OnCheckedChangeListener {
 
-    TextView tv1, tv2;
-    Button bn1;
-    RadioGroup rg;
-    String str, senddata;
+    private TextView tv1, tv2;
+    private Button bn1;
+    private RadioGroup rg;
+    private String str, senddata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

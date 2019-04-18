@@ -1,8 +1,14 @@
+buildscript {
+    ext {
+        slf4jVersion = '1.7.25'
+        lombokVersion = '1.16.4'
+    }
+}
+
 apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "27.0.1"
 
     defaultConfig {
         applicationId "bitspilani.goa.letsPlay"
@@ -16,8 +22,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {
-    //compile 'com.android.support:support-v4:21.0.0'
+
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: "${lombokVersion}"
 }

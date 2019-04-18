@@ -8,9 +8,9 @@ import android.widget.*;
 
 public class GetData extends Activity implements View.OnClickListener {
 
-    EditText et;
-    TextView tv;
-    Button b1, b2;
+    private EditText et;
+    private TextView tv;
+    private Button b1, b2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

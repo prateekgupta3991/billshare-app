@@ -13,8 +13,8 @@ public class DatabaseData extends Activity implements OnClickListener {
     //This would be the main activity for the database class
     //Would use the AddType class for all database work.
 
-    EditText etname, etmail, etadd, etid;
-    Button bsaved, bviewd, bedit, bdel, binfo;
+    private EditText etname, etmail, etadd, etid;
+    private Button bsaved, bviewd, bedit, bdel, binfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

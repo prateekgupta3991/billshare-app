@@ -9,7 +9,7 @@ import android.preference.PreferenceManager;
 
 public class IntroappActivity extends Activity {
 
-    MediaPlayer song;
+    private MediaPlayer song;
 
     @Override
     protected void onCreate(Bundle bun) {

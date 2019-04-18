@@ -1,5 +1,6 @@
 package bitspilani.goa.letsPlay;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -110,7 +111,7 @@ public class DataToExternal extends Activity implements OnItemSelectedListener, 
                 pathto.mkdirs();
 
                 try {
-                    InputStream is = getResources().openRawResource(R.drawable.wtd);
+                    @SuppressLint("ResourceType") InputStream is = getResources().openRawResource(R.drawable.wtd);
                     OutputStream os = new FileOutputStream(savetofile);
                     byte[] array = new byte[is.available()];
                     is.read(array);
@@ -125,14 +126,10 @@ public class DataToExternal extends Activity implements OnItemSelectedListener, 
                     //just for efficiency
                     MediaScannerConnection.scanFile(DataToExternal.this,
                             new String[]{path.toString()}, null,
-                            new MediaScannerConnection.OnScanCompletedListener() {
-
-                                @Override
-                                public void onScanCompleted(String arg0, Uri arg1) {
-                                    // TODO Auto-generated method stub
-                                    Toast t = Toast.makeText(DataToExternal.this, "Scan complete", Toast.LENGTH_SHORT);
-                                    t.show();
-                                }
+                            (arg0, arg1) -> {
+                                // TODO Auto-generated method stub
+                                Toast t = Toast.makeText(DataToExternal.this, "Scan complete", Toast.LENGTH_SHORT);
+                                t.show();
                             });
 
                 } catch (FileNotFoundException e) {
@@ -144,7 +141,7 @@ public class DataToExternal extends Activity implements OnItemSelectedListener, 
                 }
             }
         } else {
-            save.setVisibility(1);
+            save.setVisibility(View.INVISIBLE);
         }
     }
 

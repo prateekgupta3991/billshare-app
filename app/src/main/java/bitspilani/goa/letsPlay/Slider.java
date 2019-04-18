@@ -12,10 +12,10 @@ import android.widget.SlidingDrawer.OnDrawerOpenListener;
 
 public class Slider extends Activity implements OnClickListener, OnCheckedChangeListener, OnDrawerOpenListener, OnDrawerCloseListener {
 
-    Button b1, b2, b3, b4;
-    CheckBox chb;
-    SlidingDrawer sd;
-    MediaPlayer mp;
+    private Button b1, b2, b3, b4;
+    private CheckBox chb;
+    private SlidingDrawer sd;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

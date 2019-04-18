@@ -1,11 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext {
+        slf4jVersion = '1.7.25'
+        lombokVersion = '1.16.4'
+    }
     repositories {
         jcenter()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.android.tools.build:gradle:3.4.0'
     }
 }
 

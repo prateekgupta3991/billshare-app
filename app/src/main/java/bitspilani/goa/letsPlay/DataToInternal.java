@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class DataToInternal extends Activity implements OnClickListener {
 
     EditText getd;

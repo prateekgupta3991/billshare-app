@@ -12,9 +12,9 @@ import android.widget.EditText;
 
 public class SimpleBrowser extends Activity implements OnClickListener {
 
-    WebView bro;
-    EditText ur;
-    Button bgo, bref, bbk, bfd, bhy;
+    private WebView bro;
+    private EditText ur;
+    private Button bgo, bref, bbk, bfd, bhy;
 
     @Override
     protected void onCreate(Bundle bun) {

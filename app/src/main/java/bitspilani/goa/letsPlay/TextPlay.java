@@ -15,10 +15,10 @@ import java.util.Random;
 
 public class TextPlay extends Activity implements View.OnClickListener {
 
-    Button tri;
-    EditText type;
-    ToggleButton chk;
-    TextView disp;
+    private Button tri;
+    private EditText type;
+    private ToggleButton chk;
+    private TextView disp;
 
     private void initial() {
         // TODO Auto-generated method stub

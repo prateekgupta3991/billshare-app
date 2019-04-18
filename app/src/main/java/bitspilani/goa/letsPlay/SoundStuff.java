@@ -10,10 +10,10 @@ import android.view.View.*;
 
 public class SoundStuff extends Activity implements OnClickListener, OnLongClickListener {
 
-    SoundPool sp;
-    int exp1 = 0, exp2 = 0;
-    int clickcount = 0;
-    MediaPlayer mp;
+    private SoundPool sp;
+    private int exp1 = 0, exp2 = 0;
+    private int clickcount = 0;
+    private MediaPlayer mp;
 
     //soundpool help you to play multiple streams simultaneously
     @Override

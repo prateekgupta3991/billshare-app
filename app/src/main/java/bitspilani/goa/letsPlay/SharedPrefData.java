@@ -13,10 +13,10 @@ import android.widget.TextView;
 public class SharedPrefData extends Activity implements OnClickListener {
 
     public static String filename = "MySharedData";
-    EditText getd;
-    TextView setd;
-    Button sve, lad;
-    SharedPreferences dat;
+    private EditText getd;
+    private TextView setd;
+    private Button sve, lad;
+    private SharedPreferences dat;
 
     /*
      * shared preferences is used for data to be stored in

@@ -12,7 +12,7 @@ public class Flipp extends Activity implements OnClickListener {
      * Useful for flipping between multiple items
      * Can be used as a image viewer and flip between multiple images
      */
-    ViewFlipper flop;
+    private ViewFlipper flop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

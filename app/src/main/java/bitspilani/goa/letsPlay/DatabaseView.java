@@ -6,7 +6,7 @@ import android.widget.*;
 
 public class DatabaseView extends Activity {
 
-    TextView info;
+    private TextView info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

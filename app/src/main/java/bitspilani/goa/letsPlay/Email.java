@@ -9,9 +9,9 @@ import android.widget.*;
 
 public class Email extends Activity implements OnClickListener {
 
-    EditText senderadd, recadd, pernam, sub, pwd, msg;
-    String send, rec, nam, su, pw, gsm;
-    Button sendemail;
+    private EditText senderadd, recadd, pernam, sub, pwd, msg;
+    private String send, rec, nam, su, pw, gsm;
+    private Button sendemail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

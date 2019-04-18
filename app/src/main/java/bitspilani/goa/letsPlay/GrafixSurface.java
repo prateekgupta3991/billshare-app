@@ -16,9 +16,9 @@ import android.view.View.OnTouchListener;
 
 public class GrafixSurface extends Activity implements OnTouchListener {
 
-    UsedByGrafixSurface obj;
-    float x, y, xmove, ymove;
-    float sx, sy, fx, fy;
+    private UsedByGrafixSurface obj;
+    private float x, y, xmove, ymove;
+    private float sx, sy, fx, fy;
 
     /* The problem with Grafix class is that it is handling both the UI and
      * the graphics which makes it a little bit slow.

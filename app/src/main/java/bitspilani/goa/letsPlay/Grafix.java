@@ -8,8 +8,8 @@ import android.os.PowerManager.WakeLock;
 
 public class Grafix extends Activity {
 
-    UsedByGrafix obj;
-    WakeLock wl;
+    private UsedByGrafix obj;
+    private WakeLock wl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class Grafix extends Activity {
         //wake lock is the mechanism to stay on the device for the time the
         //the activity is running;
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "Lock");
+        wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "Lock:");
 
         super.onCreate(savedInstanceState);
         wl.acquire();

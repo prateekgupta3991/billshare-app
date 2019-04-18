@@ -14,11 +14,11 @@ import java.io.InputStream;
 public class SnapShot extends Activity implements View.OnClickListener {
 
     final static int camdata = 0;
-    ImageButton ib;
-    Button bton;
-    ImageView iv;
-    Intent intention;
-    Bitmap bmp;
+    private ImageButton ib;
+    private Button bton;
+    private ImageView iv;
+    private Intent intention;
+    private Bitmap bmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

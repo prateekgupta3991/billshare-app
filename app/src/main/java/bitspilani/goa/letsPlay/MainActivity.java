@@ -7,9 +7,9 @@ import android.widget.*;
 
 public class MainActivity extends Activity {
 
-    int count = 0;
-    TextView tv;
-    Button badd, bsub;
+    private int count = 0;
+    private TextView tv;
+    private Button badd, bsub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

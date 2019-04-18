@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 public class HorizontalTabs extends Activity implements OnClickListener {
 
-    Button newtab, start, stop;
-    TabHost th;
-    TextView timeresult, bad;
-    long starttime, stoptime;
+    private Button newtab, start, stop;
+    private TabHost th;
+    private TextView timeresult, bad;
+    private long starttime, stoptime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
