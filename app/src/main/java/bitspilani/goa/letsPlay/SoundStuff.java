@@ -6,7 +6,8 @@ import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.*;
+import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 
 public class SoundStuff extends Activity implements OnClickListener, OnLongClickListener {
 

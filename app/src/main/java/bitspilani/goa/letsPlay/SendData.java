@@ -5,9 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.*;
-import android.widget.*;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class SendData extends Activity implements View.OnClickListener, android.widget.RadioGroup.OnCheckedChangeListener {
 

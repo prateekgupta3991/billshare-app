@@ -2,7 +2,7 @@ package bitspilani.goa.letsPlay;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.*;
+import android.widget.TextView;
 
 public class DatabaseView extends Activity {
 
