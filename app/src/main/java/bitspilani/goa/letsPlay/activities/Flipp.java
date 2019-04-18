@@ -1,10 +1,12 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ViewFlipper;
+
+import bitspilani.goa.letsPlay.R;
 
 public class Flipp extends Activity implements OnClickListener {
 

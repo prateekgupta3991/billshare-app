@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.menu;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -11,16 +11,21 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import bitspilani.goa.letsPlay.R;
+
 /*setting up menu list in app for selection
  * among next activity to perform or
  * in general for use of a list.
  */
 public class Menu extends ListActivity {
 
-    String arr[] = {"MainActivity", "TextPlay", "Email", "SnapShot", "GetData",
-            "Grafix", "GrafixSurface", "SoundStuff", "Slider", "HorizontalTabs",
-            "SimpleBrowser", "Flipp", "SharedPrefData", "DataToInternal",
-            "DataToExternal", "DatabaseData"};
+//    String arr[] = {"MainActivity", "TextPlay", "Email", "SnapShot", "GetData",
+//            "Grafix", "GrafixSurface", "SoundStuff", "Slider", "HorizontalTabs",
+//            "SimpleBrowser", "Flipp", "SharedPrefData", "DataToInternal",
+//            "DataToExternal", "DatabaseData"};
+
+    String arr[] = {"GetData"};
+
 
     //creating menu
     @Override

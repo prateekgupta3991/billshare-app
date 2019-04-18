@@ -1,7 +1,9 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import bitspilani.goa.letsPlay.R;
 
 public class AboutUs extends Activity {
 

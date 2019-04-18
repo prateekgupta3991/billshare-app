@@ -18,7 +18,7 @@
         <!--android:debuggable="false">-->
 
         <activity
-            android:name=".IntroappActivity"
+            android:name=".activities.IntroappActivity"
             android:label="Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="tympass">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.MAINACTIVITY" />
@@ -36,7 +36,7 @@
         </activity>
 
         <activity
-            android:name=".TextPlay"
+            android:name=".activities.TextPlay"
             android:label="Play with TEXT">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.TEXTPLAY" />
@@ -45,7 +45,7 @@
         </activity>
 
         <activity
-            android:name=".Menu"
+            android:name=".menu.Menu"
             android:label="MENU">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.MENU" />
@@ -54,7 +54,7 @@
         </activity>
 
         <activity
-            android:name=".Email"
+            android:name=".activities.Email"
             android:label="Mail a friend">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.EMAIL" />
@@ -63,7 +63,7 @@
         </activity>
 
         <activity
-            android:name=".SnapShot"
+            android:name=".activities.SnapShot"
             android:label="Take a Pic"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -73,7 +73,7 @@
         </activity>
 
         <activity
-            android:name=".GetData"
+            android:name=".activities.GetData"
             android:label="Data Passing">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GETDATA" />
@@ -82,7 +82,7 @@
         </activity>
 
         <activity
-            android:name=".SendData"
+            android:name=".activities.SendData"
             android:label="User Choice">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.SENDDATA" />
@@ -91,7 +91,7 @@
         </activity>
 
         <activity
-            android:name=".AboutUs"
+            android:name=".activities.AboutUs"
             android:label="About Us"
             android:theme="@android:style/Theme.Dialog">
             <intent-filter>
@@ -101,7 +101,7 @@
         </activity>
 
         <activity
-            android:name=".Preferences"
+            android:name=".activities.Preferences"
             android:label="Preferences">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.PREFERENCE" />
@@ -110,7 +110,7 @@
         </activity>
 
         <activity
-            android:name=".Grafix"
+            android:name=".activities.Grafix"
             android:label="tympass">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GRAFIX" />
@@ -119,7 +119,7 @@
         </activity>
 
         <activity
-            android:name=".GrafixSurface"
+            android:name=".activities.GrafixSurface"
             android:label="Tympass surface">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GRAFIXSURFACE" />
@@ -127,7 +127,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SoundStuff"
+            android:name=".activities.SoundStuff"
             android:label="Sound Boom">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.SOUNDSTUFF" />
@@ -136,7 +136,7 @@
         </activity>
 
         <activity
-            android:name=".Slider"
+            android:name=".activities.Slider"
             android:label="slider Menu">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.SLIDER" />
@@ -145,7 +145,7 @@
         </activity>
 
         <activity
-            android:name=".HorizontalTabs"
+            android:name=".activities.HorizontalTabs"
             android:label="Tabs">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.HORIZONTALTABS" />
@@ -155,7 +155,7 @@
 
 
         <activity
-            android:name=".SimpleBrowser"
+            android:name=".activities.SimpleBrowser"
             android:label="Browse the Internet">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.SIMPLEBROWSER" />
@@ -164,7 +164,7 @@
         </activity>
 
         <activity
-            android:name=".Flipp"
+            android:name=".activities.Flipp"
             android:label="Flipp between items">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.FLIPP" />
@@ -173,7 +173,7 @@
         </activity>
 
         <activity
-            android:name=".SharedPrefData"
+            android:name=".activities.SharedPrefData"
             android:label="Store a variable data permanently">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GETDATAFRMSHAREDPREF" />
@@ -182,7 +182,7 @@
         </activity>
 
         <activity
-            android:name=".DataToInternal"
+            android:name=".activities.DataToInternal"
             android:label="Store data permanently to internal memory">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GETDATAFRMSHAREDPREF" />
@@ -191,7 +191,7 @@
         </activity>
 
         <activity
-            android:name=".DataToExternal"
+            android:name=".activities.DataToExternal"
             android:label="Store data permanently to internal memory">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.DATATOEXTERNAL" />
@@ -200,7 +200,7 @@
         </activity>
 
         <activity
-            android:name=".DatabaseData"
+            android:name=".activities.DatabaseData"
             android:label="Store data to application database">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.DATABASEDATA" />
@@ -209,7 +209,7 @@
         </activity>
 
         <activity
-            android:name=".DatabaseView"
+            android:name=".activities.DatabaseView"
             android:label="View data in application database">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.DBMSVIEW" />
