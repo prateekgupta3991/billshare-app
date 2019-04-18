@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/iV1"
@@ -16,15 +16,15 @@
         android:id="@+id/iB1"
         android:layout_width="fill_parent"
         android:layout_height="100dp"
-        android:src="@drawable/ic_launcher"
-        android:layout_gravity="center"/>"
-     <Button
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher" />"
+
+    <Button
         android:id="@+id/bsnap1"
         android:layout_width="fill_parent"
         android:layout_height="100dp"
         android:text="Set Wallpaper"
         tools:ignore="HardcodedText" />
 
-   
 
 </LinearLayout>

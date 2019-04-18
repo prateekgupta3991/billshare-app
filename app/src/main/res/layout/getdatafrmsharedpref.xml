@@ -2,39 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/etspref"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter the Data">
-    </EditText>
+        android:hint="Enter the Data"></EditText>
 
-    <LinearLayout 
+    <LinearLayout
         android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    	android:weightSum="100"
-    	android:gravity="center">
-    <Button
-        android:id="@+id/bspref1"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Data" 
-        android:layout_weight="50"/>
+        android:gravity="center"
+        android:weightSum="100">
 
-    <Button
-        android:id="@+id/bspref2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Load Data" 
-        android:layout_weight="50"/>
-	</LinearLayout>
+        <Button
+            android:id="@+id/bspref1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="Save Data" />
+
+        <Button
+            android:id="@+id/bspref2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="Load Data" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tvspref"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Data Item" 
-        android:paddingTop="20dp"/>
+        android:paddingTop="20dp"
+        android:text="Data Item" />
 
 </LinearLayout>

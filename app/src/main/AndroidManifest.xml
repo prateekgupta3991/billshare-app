@@ -2,222 +2,218 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bitspilani.goa.letsPlay"
     android:versionCode="1"
-    android:versionName="1.0" >
-	
-    <uses-feature android:name="android.hardware.camera"></uses-feature>  
+    android:versionName="1.0">
+
+    <uses-feature android:name="android.hardware.camera"></uses-feature>
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="9" />
-    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:allowBackup="true" 
+        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-   		android:label="@string/app_name" 
-   		android:debuggable="true">
-   		
+        android:label="@string/app_name">
+        <!--android:debuggable="false">-->
+
         <activity
             android:name=".IntroappActivity"
-            android:label="Intro" >
+            android:label="Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       
+
         <activity
             android:name=".MainActivity"
-            android:label="tympass" >
+            android:label="tympass">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.MAINACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-         <activity
+
+        <activity
             android:name=".TextPlay"
-            android:label="Play with TEXT" >
+            android:label="Play with TEXT">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.TEXTPLAY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-         <activity
+
+        <activity
             android:name=".Menu"
-            android:label="MENU" >
+            android:label="MENU">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.MENU" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-         <activity
+
+        <activity
             android:name=".Email"
-            android:label="Mail a friend" >
+            android:label="Mail a friend">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.EMAIL" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-         <activity
+
+        <activity
             android:name=".SnapShot"
             android:label="Take a Pic"
-            android:screenOrientation="portrait"
-             >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.SNAPSHOT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-          <activity
+
+        <activity
             android:name=".GetData"
-            android:label="Data Passing"
-            >
+            android:label="Data Passing">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GETDATA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-           <activity
+
+        <activity
             android:name=".SendData"
-            android:label="User Choice"
-            >
+            android:label="User Choice">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.SENDDATA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-         
-            <activity
+
+        <activity
             android:name=".AboutUs"
             android:label="About Us"
-            android:theme="@android:style/Theme.Dialog"
-            >
+            android:theme="@android:style/Theme.Dialog">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.ABOUTUS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-               <activity
+
+        <activity
             android:name=".Preferences"
-            android:label="Preferences"
-            >
+            android:label="Preferences">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.PREFERENCE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+
         <activity
             android:name=".Grafix"
-            android:label="tympass" >
+            android:label="tympass">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GRAFIX" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-         <activity
+
+        <activity
             android:name=".GrafixSurface"
-            android:label="Tympass surface" >
+            android:label="Tympass surface">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GRAFIXSURFACE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-         <activity
+        <activity
             android:name=".SoundStuff"
-            android:label="Sound Boom" >
+            android:label="Sound Boom">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.SOUNDSTUFF" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-         <activity
+
+        <activity
             android:name=".Slider"
-            android:label="slider Menu" >
+            android:label="slider Menu">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.SLIDER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-         <activity
+
+        <activity
             android:name=".HorizontalTabs"
-            android:label="Tabs" >
+            android:label="Tabs">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.HORIZONTALTABS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-         
-         <activity
+
+
+        <activity
             android:name=".SimpleBrowser"
-            android:label="Browse the Internet" >
+            android:label="Browse the Internet">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.SIMPLEBROWSER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-          <activity
+
+        <activity
             android:name=".Flipp"
-            android:label="Flipp between items" >
+            android:label="Flipp between items">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.FLIPP" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-          <activity
+
+        <activity
             android:name=".SharedPrefData"
-            android:label="Store a variable data permanently" >
+            android:label="Store a variable data permanently">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GETDATAFRMSHAREDPREF" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-          <activity
+
+        <activity
             android:name=".DataToInternal"
-            android:label="Store data permanently to internal memory" >
+            android:label="Store data permanently to internal memory">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.GETDATAFRMSHAREDPREF" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-           <activity
+
+        <activity
             android:name=".DataToExternal"
-            android:label="Store data permanently to internal memory" >
+            android:label="Store data permanently to internal memory">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.DATATOEXTERNAL" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-            <activity
+
+        <activity
             android:name=".DatabaseData"
-            android:label="Store data to application database" >
+            android:label="Store data to application database">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.DATABASEDATA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-                    
+
         <activity
             android:name=".DatabaseView"
-            android:label="View data in application database" >
+            android:label="View data in application database">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.DBMSVIEW" />
                 <category android:name="android.intent.category.DEFAULT" />

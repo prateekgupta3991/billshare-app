@@ -2,33 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-	<ViewFlipper 
-	    android:layout_width="match_parent"
-  		android:layout_height="fill_parent"
-  		android:id="@+id/viewflip">
-    <Button
-        android:id="@+id/bflip"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvflip1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Flipper" />
-     <TextView
-        android:id="@+id/tvflip2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Flap Flipper" />
-      <TextView
-        android:id="@+id/tvflip3"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Flip Flipper" />
-      
-      </ViewFlipper>
+    <ViewFlipper
+        android:id="@+id/viewflip"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+        <Button
+            android:id="@+id/bflip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <TextView
+            android:id="@+id/tvflip1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Flipper" />
+
+        <TextView
+            android:id="@+id/tvflip2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Flap Flipper" />
+
+        <TextView
+            android:id="@+id/tvflip3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Flip Flipper" />
+
+    </ViewFlipper>
 
 </LinearLayout>
