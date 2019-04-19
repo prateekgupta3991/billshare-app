@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,6 +10,8 @@ import android.graphics.Paint.Align;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.view.View;
+
+import bitspilani.goa.letsPlay.R;
 
 public class UsedByGrafix extends View {
 

@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+
+import bitspilani.goa.letsPlay.R;
 
 public class SimpleBrowser extends Activity implements OnClickListener {
 

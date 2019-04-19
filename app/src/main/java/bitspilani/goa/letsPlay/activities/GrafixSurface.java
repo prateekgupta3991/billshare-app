@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +13,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnTouchListener;
+
+import bitspilani.goa.letsPlay.R;
 
 public class GrafixSurface extends Activity implements OnTouchListener {
 

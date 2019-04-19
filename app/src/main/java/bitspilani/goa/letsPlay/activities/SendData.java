@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import bitspilani.goa.letsPlay.R;
 
 public class SendData extends Activity implements View.OnClickListener, android.widget.RadioGroup.OnCheckedChangeListener {
 

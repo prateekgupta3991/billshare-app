@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+
+import bitspilani.goa.letsPlay.R;
 
 public class IntroappActivity extends Activity {
 
@@ -44,7 +46,7 @@ public class IntroappActivity extends Activity {
                     //pointing to different activity
                     /*intent declaration should have exactly same intent action
                      * name of the class pointing to as that in manifest.*/
-                    Intent openman = new Intent("bitspilani.goa.letsPlay.MENU");
+                    Intent openman = new Intent("bitspilani.goa.letsPlay.menu.MENU");
                     startActivity(openman);
                 }
             }

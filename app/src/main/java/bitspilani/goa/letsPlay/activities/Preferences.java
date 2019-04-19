@@ -1,7 +1,9 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+
+import bitspilani.goa.letsPlay.R;
 
 public class Preferences extends PreferenceActivity {
 

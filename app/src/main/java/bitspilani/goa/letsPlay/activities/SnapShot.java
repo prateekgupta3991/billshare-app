@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.widget.ImageView;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import bitspilani.goa.letsPlay.R;
 
 public class SnapShot extends Activity implements View.OnClickListener {
 

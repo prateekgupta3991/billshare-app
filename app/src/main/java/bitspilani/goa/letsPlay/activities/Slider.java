@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.media.MediaPlayer;
@@ -12,6 +12,8 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.SlidingDrawer;
 import android.widget.SlidingDrawer.OnDrawerCloseListener;
 import android.widget.SlidingDrawer.OnDrawerOpenListener;
+
+import bitspilani.goa.letsPlay.R;
 
 public class Slider extends Activity implements OnClickListener, OnCheckedChangeListener, OnDrawerOpenListener, OnDrawerCloseListener {
 

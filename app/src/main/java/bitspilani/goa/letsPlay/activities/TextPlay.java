@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import java.util.Random;
+
+import bitspilani.goa.letsPlay.R;
 
 public class TextPlay extends Activity implements View.OnClickListener {
 

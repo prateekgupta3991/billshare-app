@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -22,6 +22,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import bitspilani.goa.letsPlay.R;
 
 public class DataToExternal extends Activity implements OnItemSelectedListener, OnClickListener {
 

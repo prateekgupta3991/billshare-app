@@ -1,4 +1,4 @@
-package bitspilani.goa.letsPlay;
+package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
 import android.media.AudioManager;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+
+import bitspilani.goa.letsPlay.R;
 
 public class SoundStuff extends Activity implements OnClickListener, OnLongClickListener {
 
