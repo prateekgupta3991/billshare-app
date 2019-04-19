@@ -40,7 +40,7 @@ public class Menu extends ListActivity {
         Class mainact;
         try {
             String nxtxt = arr[position];
-            mainact = Class.forName("bitspilani.goa.letsPlay." + nxtxt);
+            mainact = Class.forName("bitspilani.goa.letsPlay.activities." + nxtxt);
             Intent mainactt = new Intent(Menu.this, mainact);
             startActivity(mainactt);
         } catch (ClassNotFoundException e) {

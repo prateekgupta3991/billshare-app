@@ -34,7 +34,5 @@ dependencies {
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: "${lombokVersion}"
     implementation('com.squareup.retrofit2:retrofit:2.2.0')
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
-    implementation("com.squareup.retrofit2:converter-jackson:2.0.1"){
-        exclude(group:'com.fasterxml.jackson.core')
-    }
+    implementation("com.squareup.retrofit2:converter-jackson:2.0.1")
 }
