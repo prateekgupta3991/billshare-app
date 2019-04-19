@@ -5,33 +5,87 @@
     android:orientation="vertical"
     android:padding="5dp">
 
-    <EditText
-        android:id="@+id/etget"
+    <!--<EditText-->
+        <!--android:id="@+id/etget"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:ems="10" />-->
+
+    <LinearLayout
+        android:id="@+id/parallelButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" />
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/bt2get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Get groups" />
 
-    <Button
-        android:id="@+id/bt2get"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etget"
-        android:text="StartActivityForResult" />
+        <Button
+            android:id="@+id/bt1get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/bt2get"
+            android:layout_alignBottom="@id/bt2get"
+            android:layout_toRightOf="@id/bt2get"
+            android:layout_weight="1"
+            android:text="Get users" />
 
-    <Button
-        android:id="@+id/bt1get"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etget"
-        android:layout_alignTop="@id/bt2get"
-        android:layout_alignBottom="@id/bt2get"
-        android:layout_toRightOf="@id/bt2get"
-        android:text="StartActivity" />
+        <Button
+            android:id="@+id/bt3get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/bt1get"
+            android:layout_alignBottom="@id/bt1get"
+            android:layout_toRightOf="@id/bt1get"
+            android:layout_weight="1"
+            android:text="Get bills" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv1get"
-        android:layout_width="fill_parent"
+    <TableLayout
+        android:id="@+id/datatable"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bt2get"
-        android:text="will get returned text" />
+        android:layout_below="@id/parallelButtons">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvtable1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Names" />
+
+            <TextView
+                android:id="@+id/tvtable2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Email address" />
+
+            <TextView
+                android:id="@+id/tvtable3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Contact" />
+
+        </TableRow>
+    </TableLayout>
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv1get"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/bt2get"-->
+        <!--android:text="will get returned text" />-->
 </RelativeLayout>

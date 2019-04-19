@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.List;
@@ -16,6 +18,8 @@ import bitspilani.goa.letsPlay.dtos.UserResponseDto;
 import bitspilani.goa.letsPlay.retrofit.BillshareService;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -24,9 +28,7 @@ import static android.content.ContentValues.TAG;
 
 public class GetData extends Activity implements View.OnClickListener {
 
-    private EditText et;
-    private TextView tv;
-    private Button b1, b2;
+    private Button b1, b2, b3;
     private Retrofit retrofit;
 
     @Override
@@ -38,14 +40,14 @@ public class GetData extends Activity implements View.OnClickListener {
         retrofit = initialiseRestClient();
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
+        b3.setOnClickListener(this);
     }
 
     private void bindVarsWithViews() {
         // TODO Auto-generated method stub
-        et = (EditText) findViewById(R.id.etget);
-        tv = (TextView) findViewById(R.id.tv1get);
         b1 = (Button) findViewById(R.id.bt1get);
         b2 = (Button) findViewById(R.id.bt2get);
+        b3 = (Button) findViewById(R.id.bt3get);
     }
 
     private Retrofit initialiseRestClient() {
@@ -69,45 +71,45 @@ public class GetData extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
-        if (v.getId() == R.id.bt1get) {
-//            String str = et.getText().toString();
-//            Bundle dataflow = new Bundle();
-//            dataflow.putString("key", str);
-//            Intent sa = new Intent(GetData.this, SendData.class);
-//            sa.putExtras(dataflow);
-//            startActivity(sa);
 
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.datatable);
+        if (v.getId() == R.id.bt1get) {
             BillshareService billshareService = retrofit.create(BillshareService.class);
-            Thread thread = new Thread(() -> {
-                try {
-                    Response<List<UserResponseDto>> userResponseDtoResponse = billshareService.getUsers().execute();
-                    System.out.println(userResponseDtoResponse.body());
-                } catch (Exception e) {
-                    Log.e(TAG, e.getMessage());
-                }
-            });
-            thread.start();
+            try {
+                Call<List<UserResponseDto>> call = billshareService.getUsers();
+                call.enqueue(new Callback<List<UserResponseDto>>() {
+                    @Override
+                    public void onResponse(Call<List<UserResponseDto>> call, Response<List<UserResponseDto>> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            fillDataInTable(tableLayout, response.body());
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<List<UserResponseDto>> call, Throwable t) {
+                    }
+                });
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
         } else if (v.getId() == R.id.bt2get) {
-//            Intent safr = new Intent(GetData.this, SendData.class);
-//            startActivityForResult(safr, 0);
+        } else if (v.getId() == R.id.bt3get) {
         }
     }
 
-    /**
-     * listener which will wait for the result after calling the activity for the respective intent
-     *
-     * @param requestCode
-     * @param resultCode
-     * @param data
-     */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            Bundle res = data.getExtras();
-            String s = res.getString("result");
-            tv.setText(s);
+    private void fillDataInTable(TableLayout tableLayout, List<UserResponseDto> userResponseDto) {
+
+        for (UserResponseDto dto : userResponseDto) {
+            TableRow tableRow = new TableRow(this);
+            TextView tvName = new TextView(this);
+            TextView tvEmail = new TextView(this);
+            TextView tvContact = new TextView(this);
+            tvName.setText(dto.getName());
+            tvEmail.setText(dto.getEmail());
+            tvContact.setText(dto.getContact());
+            tableRow.addView(tvName);
+            tableRow.addView(tvEmail);
+            tableRow.addView(tvContact);
+            tableLayout.addView(tableRow);
         }
     }
 
