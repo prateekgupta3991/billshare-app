@@ -13,29 +13,27 @@ public class IntroappActivity extends Activity {
 
     private MediaPlayer song;
 
+    /**
+     * initialising first activity with app opening sound
+     * soundpool for sudden small sounds...mediaplayer for background scores...
+     *
+     * @param bun
+     */
     @Override
     protected void onCreate(Bundle bun) {
         super.onCreate(bun);
+
         setContentView(R.layout.introapp);
-        /*adding music to an activity
-         * two classes-soundpool and mediaplayer
-         * soundpool for sudden small sounds.
-         * mediaplayer for background scores.
-         */
+        song = MediaPlayer.create(IntroappActivity.this, R.raw.applause);
 
-        song = MediaPlayer.create(IntroappActivity.this, R.raw.backgroundscore);
-
-        //fetching the preference value set by the user for modification in the
-        //media being played
-        //datatype-SharedPreference
-        //preference items are accessed via key allotted to each item
+        //fetching the preference value set by the user from SharedPreference in android
         SharedPreferences getprefval = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean music = getprefval.getBoolean("check", true);
-        if (music == true)
+        if (music) {
             song.start();
-		
-		/*for maintaining a time difference between two activities
-		important for game development*/
+        }
+
+//		loading menu after initial timegap
         Thread timer = new Thread() {
             public void run() {
                 try {
@@ -43,23 +41,19 @@ public class IntroappActivity extends Activity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    //pointing to different activity
-                    /*intent declaration should have exactly same intent action
-                     * name of the class pointing to as that in manifest.*/
                     Intent openman = new Intent("bitspilani.goa.letsPlay.menu.MENU");
                     startActivity(openman);
                 }
             }
         };
         timer.start();
-
     }
 
     @Override
     protected void onPause() {
         // TODO Auto-generated method stub
         super.onPause();
-        song.release();//to stop the music on when in pause or exchange mode.
+        song.release();
         finish();
     }
 

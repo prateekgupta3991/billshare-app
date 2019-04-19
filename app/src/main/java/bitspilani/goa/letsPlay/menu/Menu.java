@@ -13,30 +13,24 @@ import android.widget.ListView;
 
 import bitspilani.goa.letsPlay.R;
 
-/*setting up menu list in app for selection
- * among next activity to perform or
- * in general for use of a list.
- */
 public class Menu extends ListActivity {
 
-//    String arr[] = {"MainActivity", "TextPlay", "Email", "SnapShot", "GetData",
-//            "Grafix", "GrafixSurface", "SoundStuff", "Slider", "HorizontalTabs",
-//            "SimpleBrowser", "Flipp", "SharedPrefData", "DataToInternal",
-//            "DataToExternal", "DatabaseData"};
+    private String arr[];
 
-    String arr[] = {"GetData"};
-
-
-    //creating menu
+    /**
+     * listener for item clicked on the menu
+     * create intent for the clicked menu item and start activity for the respective intent
+     *
+     * @param l
+     * @param v
+     * @param position
+     * @param id
+     */
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         // TODO Auto-generated method stub
         super.onListItemClick(l, v, position, id);
 
-        /*another method of creating intent
-         * using class variable method
-         * better than the normal way.
-         */
         Class mainact;
         try {
             String nxtxt = arr[position];
@@ -50,32 +44,33 @@ public class Menu extends ListActivity {
 
     }
 
+    /**
+     * Setting a list adapter of Activity class to display menu
+     *
+     * @param bun
+     */
     @Override
     protected void onCreate(Bundle bun) {
         // TODO Auto-generated method stub
         super.onCreate(bun);
 
-        /*setting the activity as fullscreen
-         * Do before setting the content or setting adapter*/
+        arr = new String[]{"GetData"};
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        /*Setting a list adapter because we need to set it up for the
-         * menu list. Also setting this list adapter as array adapter.
-         * But this array adapter can vary.
-         */
-        setListAdapter(new ArrayAdapter<String>(Menu.this, android.R.layout.simple_list_item_1, arr));
-
+        setListAdapter(new ArrayAdapter<>(Menu.this, android.R.layout.simple_list_item_1, arr));
     }
 
 
-    //setting up inflated menu
-    //functions related to inflated menu are
-    //onCreateOptionsMenu and onOptionsItemSelected
+    /**
+     * setting up inflatable menu
+     *
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(android.view.Menu menu) {
         // TODO Auto-generated method stub
-        //remove this statement return super.onCreateOptionsMenu(menu);
+
         MenuInflater inf = getMenuInflater();
         inf.inflate(R.menu.stdmenu, menu);
         return true;
@@ -85,7 +80,6 @@ public class Menu extends ListActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // TODO Auto-generated method stub
-        //remove this statement return super.onOptionsItemSelected(item);
         if (item.getItemId() == R.id.aus) {
             Intent i = new Intent("bitspilani.goa.letsPlay.ABOUTUS");
             startActivity(i);

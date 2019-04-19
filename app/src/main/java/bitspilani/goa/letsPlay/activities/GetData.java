@@ -9,10 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
 import java.util.List;
 
 import bitspilani.goa.letsPlay.R;
@@ -31,18 +27,20 @@ public class GetData extends Activity implements View.OnClickListener {
     private EditText et;
     private TextView tv;
     private Button b1, b2;
+    private Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.get);
-        initial();
+        bindVarsWithViews();
+        retrofit = initialiseRestClient();
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
     }
 
-    private void initial() {
+    private void bindVarsWithViews() {
         // TODO Auto-generated method stub
         et = (EditText) findViewById(R.id.etget);
         tv = (TextView) findViewById(R.id.tv1get);
@@ -50,6 +48,24 @@ public class GetData extends Activity implements View.OnClickListener {
         b2 = (Button) findViewById(R.id.bt2get);
     }
 
+    private Retrofit initialiseRestClient() {
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(new HttpLoggingInterceptor())
+                .build();
+
+        Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
+                .client(okHttpClient)
+                .addConverterFactory(JacksonConverterFactory.create())
+                .baseUrl("http://13.250.111.164:8098/billshare/");
+        return retrofitBuilder.build();
+    }
+
+    /**
+     * listener for button clicks
+     * prepares intent by another format, calls the respective activity of the intent
+     *
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
@@ -60,17 +76,8 @@ public class GetData extends Activity implements View.OnClickListener {
 //            Intent sa = new Intent(GetData.this, SendData.class);
 //            sa.putExtras(dataflow);
 //            startActivity(sa);
-            OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                    .addInterceptor(new HttpLoggingInterceptor())
-                    .build();
 
-            Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
-                    .client(okHttpClient)
-                    .addConverterFactory(JacksonConverterFactory.create())
-                    .baseUrl("http://13.250.111.164:8098/billshare/");
-            Retrofit retrofit = retrofitBuilder.build();
             BillshareService billshareService = retrofit.create(BillshareService.class);
-
             Thread thread = new Thread(() -> {
                 try {
                     Response<List<UserResponseDto>> userResponseDtoResponse = billshareService.getUsers().execute();
@@ -81,11 +88,18 @@ public class GetData extends Activity implements View.OnClickListener {
             });
             thread.start();
         } else if (v.getId() == R.id.bt2get) {
-            Intent safr = new Intent(GetData.this, SendData.class);
-            startActivityForResult(safr, 0);
+//            Intent safr = new Intent(GetData.this, SendData.class);
+//            startActivityForResult(safr, 0);
         }
     }
 
+    /**
+     * listener which will wait for the result after calling the activity for the respective intent
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
