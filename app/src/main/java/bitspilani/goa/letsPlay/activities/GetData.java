@@ -12,6 +12,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import bitspilani.goa.letsPlay.R;
+import bitspilani.goa.letsPlay.dtos.BillResponseDto;
+import bitspilani.goa.letsPlay.dtos.GroupResponseDto;
 import bitspilani.goa.letsPlay.dtos.UserResponseDto;
 import bitspilani.goa.letsPlay.retrofit.BillshareApiService;
 import okhttp3.OkHttpClient;
@@ -72,6 +74,7 @@ public class GetData extends Activity implements View.OnClickListener {
 
         TableLayout tableLayout = (TableLayout) findViewById(R.id.datatable);
         if (v.getId() == R.id.bt1get) {
+            tableLayout.removeAllViews();
             BillshareApiService billshareService = retrofit.create(BillshareApiService.class);
             try {
                 Call<List<UserResponseDto>> call = billshareService.getUsers();
@@ -79,7 +82,7 @@ public class GetData extends Activity implements View.OnClickListener {
                     @Override
                     public void onResponse(Call<List<UserResponseDto>> call, Response<List<UserResponseDto>> response) {
                         if (response.isSuccessful() && response.body() != null) {
-                            fillDataInTable(tableLayout, response.body());
+                            fillUserDataInTable(tableLayout, response.body());
                         }
                     }
                     @Override
@@ -91,11 +94,49 @@ public class GetData extends Activity implements View.OnClickListener {
                 Log.e(TAG, e.getMessage());
             }
         } else if (v.getId() == R.id.bt2get) {
+            tableLayout.removeAllViews();
+            BillshareApiService billshareService = retrofit.create(BillshareApiService.class);
+            try {
+                Call<List<GroupResponseDto>> call = billshareService.getGroups();
+                call.enqueue(new Callback<List<GroupResponseDto>>() {
+                    @Override
+                    public void onResponse(Call<List<GroupResponseDto>> call, Response<List<GroupResponseDto>> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            fillGroupDataInTable(tableLayout, response.body());
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<List<GroupResponseDto>> call, Throwable t) {
+                        System.out.println("Call failed");
+                    }
+                });
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
         } else if (v.getId() == R.id.bt3get) {
+            tableLayout.removeAllViews();
+            BillshareApiService billshareService = retrofit.create(BillshareApiService.class);
+            try {
+                Call<BillResponseDto> call = billshareService.getBills(1);
+                call.enqueue(new Callback<BillResponseDto>() {
+                    @Override
+                    public void onResponse(Call<BillResponseDto> call, Response<BillResponseDto> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            fillBillDataInTable(tableLayout, response.body());
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<BillResponseDto> call, Throwable t) {
+                        System.out.println("Call failed");
+                    }
+                });
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
         }
     }
 
-    private void fillDataInTable(TableLayout tableLayout, List<UserResponseDto> userResponseDto) {
+    private void fillUserDataInTable(TableLayout tableLayout, List<UserResponseDto> userResponseDto) {
 
         for (UserResponseDto dto : userResponseDto) {
             TableRow tableRow = new TableRow(this);
@@ -110,6 +151,43 @@ public class GetData extends Activity implements View.OnClickListener {
             tableRow.addView(tvContact);
             tableLayout.addView(tableRow);
         }
+    }
+
+    private void fillGroupDataInTable(TableLayout tableLayout, List<GroupResponseDto> groupResponseDtos) {
+
+        for (GroupResponseDto dto : groupResponseDtos) {
+            TableRow tableRow = new TableRow(this);
+            TextView tvName = new TextView(this);
+            TextView tvEmail = new TextView(this);
+            TextView tvContact = new TextView(this);
+            tvName.setText(dto.getName());
+            tvEmail.setText(dto.getAdmin().getName());
+            StringBuilder sb = new StringBuilder();
+            for (UserResponseDto userResponseDto : dto.getUsers()) {
+                sb.append(userResponseDto.getName());
+                sb.append(",");
+            }
+            tvContact.setText(sb.substring(0, sb.length() - 1));
+            tableRow.addView(tvName);
+            tableRow.addView(tvEmail);
+            tableRow.addView(tvContact);
+            tableLayout.addView(tableRow);
+        }
+    }
+
+    private void fillBillDataInTable(TableLayout tableLayout, BillResponseDto billResponseDto) {
+
+            TableRow tableRow = new TableRow(this);
+            TextView tvName = new TextView(this);
+            TextView tvEmail = new TextView(this);
+            TextView tvContact = new TextView(this);
+            tvName.setText(billResponseDto.getBillName());
+            tvEmail.setText(billResponseDto.getGrpId() != null ? billResponseDto.getGrpId().toString() : null);
+            tvContact.setText(billResponseDto.getAmount() != null ? billResponseDto.getAmount().toString() : null);
+            tableRow.addView(tvName);
+            tableRow.addView(tvEmail);
+            tableRow.addView(tvContact);
+            tableLayout.addView(tableRow);
     }
 
 }
