@@ -1,12 +1,10 @@
 package bitspilani.goa.letsPlay.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -15,7 +13,7 @@ import java.util.List;
 
 import bitspilani.goa.letsPlay.R;
 import bitspilani.goa.letsPlay.dtos.UserResponseDto;
-import bitspilani.goa.letsPlay.retrofit.BillshareService;
+import bitspilani.goa.letsPlay.retrofit.BillshareApiService;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -58,7 +56,7 @@ public class GetData extends Activity implements View.OnClickListener {
         Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
                 .client(okHttpClient)
                 .addConverterFactory(JacksonConverterFactory.create())
-                .baseUrl("http://13.250.111.164:8098/billshare/");
+                .baseUrl("http://10.0.2.2:8098/billshare/");
         return retrofitBuilder.build();
     }
 
@@ -74,7 +72,7 @@ public class GetData extends Activity implements View.OnClickListener {
 
         TableLayout tableLayout = (TableLayout) findViewById(R.id.datatable);
         if (v.getId() == R.id.bt1get) {
-            BillshareService billshareService = retrofit.create(BillshareService.class);
+            BillshareApiService billshareService = retrofit.create(BillshareApiService.class);
             try {
                 Call<List<UserResponseDto>> call = billshareService.getUsers();
                 call.enqueue(new Callback<List<UserResponseDto>>() {
@@ -86,6 +84,7 @@ public class GetData extends Activity implements View.OnClickListener {
                     }
                     @Override
                     public void onFailure(Call<List<UserResponseDto>> call, Throwable t) {
+                        System.out.println("Call failed");
                     }
                 });
             } catch (Exception e) {
