@@ -54,7 +54,7 @@ public class Menu extends ListActivity {
         // TODO Auto-generated method stub
         super.onCreate(bun);
 
-        arr = new String[]{"GetData"};
+        arr = new String[]{"GetData", "UserMetaStorage"};
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setListAdapter(new ArrayAdapter<>(Menu.this, android.R.layout.simple_list_item_1, arr));
@@ -92,5 +92,11 @@ public class Menu extends ListActivity {
         return true;
     }
 
+    public String[] getArr() {
+        return arr;
+    }
 
+    public void setArr(String[] arr) {
+        this.arr = arr;
+    }
 }

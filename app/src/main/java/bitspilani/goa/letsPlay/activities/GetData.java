@@ -9,6 +9,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import bitspilani.goa.letsPlay.R;
@@ -30,6 +33,7 @@ public class GetData extends Activity implements View.OnClickListener {
 
     private Button b1, b2, b3;
     private Retrofit retrofit;
+    private final String FILENAME = "splitUp_me.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +62,7 @@ public class GetData extends Activity implements View.OnClickListener {
         Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
                 .client(okHttpClient)
                 .addConverterFactory(JacksonConverterFactory.create())
-                .baseUrl("http://10.0.2.2:8098/billshare/");
+                .baseUrl("http://3.1.202.158:8098/billshare/");
         return retrofitBuilder.build();
     }
 
@@ -77,16 +81,55 @@ public class GetData extends Activity implements View.OnClickListener {
             tableLayout.removeAllViews();
             BillshareApiService billshareService = retrofit.create(BillshareApiService.class);
             try {
-                Call<List<UserResponseDto>> call = billshareService.getUsers();
-                call.enqueue(new Callback<List<UserResponseDto>>() {
+//                Call<List<UserResponseDto>> call = billshareService.getUsers();
+//                call.enqueue(new Callback<List<UserResponseDto>>() {
+//                    @Override
+//                    public void onResponse(Call<List<UserResponseDto>> call, Response<List<UserResponseDto>> response) {
+//                        if (response.isSuccessful() && response.body() != null) {
+//                            fillUsersDataInTable(tableLayout, response.body());
+//                        }
+//                    }
+//                    @Override
+//                    public void onFailure(Call<List<UserResponseDto>> call, Throwable t) {
+//                        System.out.println("Call failed");
+//                    }
+//                });
+
+                FileInputStream fis = null;
+                String data = "";
+                try {
+                    fis = openFileInput(FILENAME);
+                    byte[] arr = new byte[fis.available()];//getting number of bytes in fis
+                    while (fis.read(arr) != -1) ;//reading the bytes in fis
+                    {
+                        data = new String(arr);
+                    }
+                } catch (FileNotFoundException e1) {
+                    // TODO Auto-generated catch block
+                    Log.e(TAG, "No file found for user");
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    Log.e(TAG, "Some I/O exception occured");
+                } finally {
+                    if (fis != null) {
+                        try {
+                            fis.close();
+                        } catch (IOException e) {
+                            Log.e(TAG, "Unable to close file output tream");
+                        }
+                    }
+                }
+
+                Call<UserResponseDto> call = billshareService.getUserById(data);
+                call.enqueue(new Callback<UserResponseDto>() {
                     @Override
-                    public void onResponse(Call<List<UserResponseDto>> call, Response<List<UserResponseDto>> response) {
+                    public void onResponse(Call<UserResponseDto> call, Response<UserResponseDto> response) {
                         if (response.isSuccessful() && response.body() != null) {
                             fillUserDataInTable(tableLayout, response.body());
                         }
                     }
                     @Override
-                    public void onFailure(Call<List<UserResponseDto>> call, Throwable t) {
+                    public void onFailure(Call<UserResponseDto> call, Throwable t) {
                         System.out.println("Call failed");
                     }
                 });
@@ -136,21 +179,26 @@ public class GetData extends Activity implements View.OnClickListener {
         }
     }
 
-    private void fillUserDataInTable(TableLayout tableLayout, List<UserResponseDto> userResponseDto) {
+    private void fillUsersDataInTable(TableLayout tableLayout, List<UserResponseDto> userResponseDto) {
 
         for (UserResponseDto dto : userResponseDto) {
-            TableRow tableRow = new TableRow(this);
-            TextView tvName = new TextView(this);
-            TextView tvEmail = new TextView(this);
-            TextView tvContact = new TextView(this);
-            tvName.setText(dto.getName());
-            tvEmail.setText(dto.getEmail());
-            tvContact.setText(dto.getContact());
-            tableRow.addView(tvName);
-            tableRow.addView(tvEmail);
-            tableRow.addView(tvContact);
-            tableLayout.addView(tableRow);
+            fillUserDataInTable(tableLayout, dto);
         }
+    }
+
+    private void fillUserDataInTable(TableLayout tableLayout, UserResponseDto userResponseDto) {
+
+        TableRow tableRow = new TableRow(this);
+        TextView tvName = new TextView(this);
+        TextView tvEmail = new TextView(this);
+        TextView tvContact = new TextView(this);
+        tvName.setText(userResponseDto.getName());
+        tvEmail.setText(userResponseDto.getEmail());
+        tvContact.setText(userResponseDto.getContact());
+        tableRow.addView(tvName);
+        tableRow.addView(tvEmail);
+        tableRow.addView(tvContact);
+        tableLayout.addView(tableRow);
     }
 
     private void fillGroupDataInTable(TableLayout tableLayout, List<GroupResponseDto> groupResponseDtos) {

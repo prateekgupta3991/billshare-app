@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bitspilani.goa.letsPlay"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.1">
 
     <uses-feature android:name="android.hardware.camera"></uses-feature>
 
@@ -40,6 +40,15 @@
             android:label="Bill Splitter">
             <intent-filter>
                 <action android:name="bitspilani.goa.letsPlay.activities.GETDATA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="bitspilani.goa.letsPlay.activities.UserMetaStorage"
+            android:label="Bill Splitter">
+            <intent-filter>
+                <action android:name="bitspilani.goa.letsPlay.activities.USERMETASTORAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

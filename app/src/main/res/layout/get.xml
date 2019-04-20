@@ -33,7 +33,7 @@
             android:layout_alignBottom="@id/bt2get"
             android:layout_toRightOf="@id/bt2get"
             android:layout_weight="1"
-            android:text="Get users" />
+            android:text="My profile" />
 
         <Button
             android:id="@+id/bt3get"
