@@ -56,7 +56,7 @@ public class UserMetaStorage extends Activity implements View.OnClickListener {
         Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
                 .client(okHttpClient)
                 .addConverterFactory(JacksonConverterFactory.create())
-                .baseUrl("http://3.1.202.158:8098/billshare/");
+                .baseUrl("http://13.229.105.217:8098/billshare/");
         return retrofitBuilder.build();
     }
 

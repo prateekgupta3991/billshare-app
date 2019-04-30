@@ -1,7 +1,5 @@
 buildscript {
     ext {
-        slf4jVersion = '1.7.25'
-        lombokVersion = '1.16.4'
     }
 }
 
@@ -30,8 +28,6 @@ android {
 
 dependencies {
 
-    annotationProcessor group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jVersion}"
-    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: "${lombokVersion}"
     implementation('com.squareup.retrofit2:retrofit:2.2.0')
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
     implementation("com.squareup.retrofit2:converter-jackson:2.0.1")
